@@ -22,16 +22,9 @@ function App() {
             rel="noreferrer"
           >
             Open-source code
+             
           </a>
-          by Faiza Khalid, and hosted on{" "}
-          <a
-            href="https://github.com/Faiza9972/vanilla-weather-app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            Netlify
-          </a>
+           by Faiza Khalid.
         </small>
       </div>
     </div>
