@@ -3,15 +3,13 @@ import "./App.css";
 import "./Weather.css";
 import Weather from "./Weather";
 
-import Search from "./Search.js";
 import Forecast from "./Forecast.js";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <div className="weather-app-wrapper">
-        <Search />
-        <Weather />
+        <Weather defaultCity="Athens"/>
         <Forecast />
       </div>
       <div className="link">
@@ -22,7 +20,7 @@ function App() {
             rel="noreferrer"
           >
             Open-source code
-             
+             {" "}
           </a>
            by Faiza Khalid.
         </small>
