@@ -15,7 +15,7 @@ function App() {
       <div className="link">
         <small>
           <a
-            href="https://github.com/Faiza9972/vanilla-weather-app"
+            href="https://github.com/Faiza9972/weather-react"
             target="_blank"
             rel="noreferrer"
           >
