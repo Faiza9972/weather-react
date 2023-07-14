@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
+
 import axios from "axios";
 
 export default function Weather(props) {
@@ -11,14 +12,14 @@ setweatherData ({
   ready: true,
   city: response.data.name,
   temperature: response.data.main.temp,
-  date: "Monday 10:00",
+  date: new Date(response.data.dt * 1000),
   descrtiption: response.data.weather[0].description,
   humidity: response.data.main.humidity,
   wind: response.data.wind.speed,
   icon: 'https://openweathermap.org/img/wn/01d@2x.png',
 
 })
-console.log(response.data);
+//console.log(response.data);
 }
 
 if(weatherData.ready) {
@@ -44,33 +45,8 @@ return (
           </div>
         </div>
       </form>
-      <h1>{weatherData.city}</h1>
-      <ul>
-        <FormattedDate date={weatherData.date}/>
-        <li>Last update:</li>
-        <li>{weatherData.description}</li>
-      </ul>
-      <div className="row mt-3">
-        <div className="col-6">
-          <div className="d-flex weather-temperature">
-            <img
-              src={weatherData.icon}
-              alt="Clear"
-            />
-            <div>
-              <strong>{Math.round(weatherData.temperature)}</strong>
-              <span className="units">°C</span>
-            </div>
-          </div>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li>Humidity: {weatherData.humidity}%</li>
-            <li>Wind: {weatherData.wind}km/h</li>
-          </ul>
-        </div>
-      </div>
-      <hr />
+      <WeatherInfo info={weatherData}/>
+      
     </div>
   );
 } else {
