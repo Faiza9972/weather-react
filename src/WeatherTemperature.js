@@ -19,14 +19,16 @@ setUnit("celsius");
 if (unit === 'celsius') {
 return (
     <div>
-<strong>{Math.round(props.celsius)}</strong>
+        <span><strong>{Math.round(props.celsius)}</strong>
+</span>
     <span className="units">°C |<a href="/" onClick={convertToFahrenheit}>°F</a></span>
 </div>
 );
 } else {
 return (
     <div>
-<strong>{Math.round(fahrenheit())}</strong>
+        <span><strong>{Math.round(fahrenheit())}</strong>
+</span>
     <span className="units"><a href="/" onClick={convertToCelsius}>°C</a> |°F</span>
 </div>
 );

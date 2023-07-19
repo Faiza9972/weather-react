@@ -20,10 +20,10 @@ ul :first-letter {
   opacity: 0.9;
 }
 
-.weather-temperature img {
+.weather-temperature canvas {
   margin-right: 5px;
-  height: 64px;
-  width: 64px;
+  margin-top: 5px;
+  display:inline-block;
 }
 .weather-temperature strong {
   font-size: 64px;
