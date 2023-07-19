@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -9,8 +10,9 @@ const [city, setCity]= useState(props.defaultCity);
 const [weatherData, setweatherData]= useState({ready: false});
 
 function handleResponse(response) {
-setweatherData ({
+setweatherData({
   ready: true,
+  coordinates: response.data.coordinates,
   city: response.data.name,
   temperature: response.data.main.temp,
   date: new Date(response.data.dt * 1000),
@@ -18,7 +20,7 @@ setweatherData ({
   humidity: response.data.main.humidity,
   wind: response.data.wind.speed,
   icon: response.data.weather[0].icon,
-})
+});
 //console.log(response.data);
 }
 
@@ -41,32 +43,32 @@ setCity(event.target.value)
 
 if(weatherData.ready) {
 return (
-    <div className="Weather">
-      <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-10">
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control city-input-box"
-                placeholder="Enter a city"
-                autoFocus="on"
-                onChange = {handleChange}
-              />
-              <button
-                className="btn btn-outline-secondary search-btn"
-                type="submit"
-              >
-                Search
-              </button>
-            </div>
+  <div className="Weather">
+    <form onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="col-10">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control city-input-box"
+              placeholder="Enter a city"
+              autoFocus="on"
+              onChange={handleChange}
+            />
+            <button
+              className="btn btn-outline-secondary search-btn"
+              type="submit"
+            >
+              Search
+            </button>
           </div>
         </div>
-      </form>
-      <WeatherInfo data={weatherData} />
-      
-    </div>
-  );
+      </div>
+    </form>
+    <WeatherInfo data={weatherData} />
+    <Forecast coordinates={weatherData.coordinates} />
+  </div>
+);
 } else {
 search();
 return "Loading...";

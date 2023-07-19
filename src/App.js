@@ -3,14 +3,11 @@ import "./App.css";
 import "./Weather.css";
 import Weather from "./Weather";
 
-import Forecast from "./Forecast.js";
-
 function App() {
   return (
     <div className="App container">
       <div className="weather-app-wrapper">
         <Weather defaultCity="Athens"/>
-        <Forecast />
       </div>
       <div className="link">
         <small>
