@@ -42,12 +42,6 @@ ul :first-letter {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
-/*.weather-forecast-temperature {
-  font-size: 13px;
-}
-.weather-forecast-temperature-min {
-  opacity: 0.9;
-}*/
 
 hr {
   margin: 15px auto;
